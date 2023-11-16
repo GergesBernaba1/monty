@@ -1,4 +1,7 @@
+#define _POSIX_C_SOURCE 200809L
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * main - entry point
  * @argc: nr of arguments
