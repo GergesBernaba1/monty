@@ -71,4 +71,7 @@ void get_push(stack_t **stack, unsigned int line_number, char *tmp);
 void get_free(stack_t *stack);
 int _isdigit(char *str);
 
+/****fifth*****/
+void get_mod(stack_t **stack, unsigned int line_number);
+
 #endif
