@@ -1,33 +1,35 @@
 #include "monty.h"
-
 /**
- * g_mod - computes the rest of the division
- * @stack: pointer to head of the stack
+ * f_mod - finds modulus of top two elements
+ * @stack: pointer to the top of the stack
  * @line_number: line number
  * Return: nothing or exit_failure
  */
-void g_mod(stack_t **stack, unsigned int line_number)
+void _mod(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = *stack;
+        stack_t *fir, *sec;
 
-    if (temp == NULL || temp->next == NULL)
-    {
-        fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-        fclose(file);
-        get_free(*stack);
-        exit(EXIT_FAILURE);
-    }
-
-    if (temp->n == 0)
-    {
-        fprintf(stderr, "L%d: division by zero\n", line_number);
-        fclose(file);
-        get_free(*stack);
-        exit(EXIT_FAILURE);
-    }
-
-    temp->next->n %= temp->n;
-    *stack = temp->next;
-    free(temp);
+        if ((*stack == NULL) || ((*stack)->next == NULL))
+        {
+                fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+                fclose(file);
+                get_free(*stack);
+                exit(EXIT_FAILURE);
+        }
+        else if ((*stack)->n == 0)
+        {
+                fprintf(stderr, "L%d: division by zero\n", line_number);
+                fclose(file);
+                get_free(*stack);
+                exit(EXIT_FAILURE);
+        }
+        else
+        {
+                fir = *stack;
+                sec = fir->next;
+                sec->n %= fir->n;
+                *stack = sec;
+                (*stack)->prev = NULL;
+                free(fir);
+        }
 }
-
