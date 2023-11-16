@@ -8,6 +8,7 @@
  * Description: 11. pchar
  * Return: nothing or exit_failure
  */
+int isascii(int c);
 
 void get_pchar(stack_t **stack, unsigned int line_number)
 {

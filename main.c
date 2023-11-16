@@ -35,10 +35,6 @@ int main(int argc, char *argv[])
 			tmp = strtok(NULL, "\n ");
 			get_push(&head, count, tmp);
 		}
-		    else if (strcmp("mod", ar[0]) == 0)
-                    {
-                       get_mod(&head, count);
-                    }
 		else if (ar[0] != NULL && ar[0][0] != '#')
 		{
 			operator_function = get_operator(ar[0], count, &head);
